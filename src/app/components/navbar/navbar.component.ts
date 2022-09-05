@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { InformationService } from 'src/app/services/information/information.service';
 
 @Component({
@@ -20,6 +21,10 @@ export class NavbarComponent implements OnInit {
     this.getRouterInformation();
   }
 
+  /**
+   * @description - method that runs callRoutingInfo() method in information service file
+   *  to assign values to this.routeTitles and this.routePaths arrays
+   */
   private getRouterInformation(): void {
     this.informationService.callRoutingInfo(this.router);
     this.routeTitles = this.informationService.getRouteTitles();

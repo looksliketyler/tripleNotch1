@@ -29,16 +29,28 @@ export class InformationService {
     return this.animals;
   }
 
+  /**
+   * @description - public method that checks for routes and runs filter method to assign values in service file
+   * @param {Router} routes angular router object
+   */
   public callRoutingInfo(routes: Router): void {
     if (routes) {
       this.filterAndReturnRouteInfo(routes);
     }
   }
 
+  /**
+   * @description - public method to return page titles from angular router
+   * @returns {string[]} route titles
+   */
   public getRouteTitles(): string[] {
     return this.routeTitleArray;
   }
 
+  /**
+   * @description - public method to return route url paths from angular router
+   * @returns {string[]} route paths
+   */
   public getRoutePaths(): string[] {
     return this.routePathsArray;
   }
@@ -51,12 +63,12 @@ export class InformationService {
   private filterAndReturnRouteInfo(routes: Router): void {
     let routeTitleArray: string[] = [];
     let routePathsArray: string[] = [];
-    if (Array.isArray(routes.config)) {
+    if (Array.isArray(routes.config)) { // .config houses the forRoot() paths in the angular router
       for (const route of routes.config) {
-        if (route['data'] && route['data'].title) {
+        if (route['data'] && route['data'].title) { // route['data'] would be the data key added in the routes object in angular router
           routeTitleArray.push(route['data'].title);
         }
-        if (route && route.path) {
+        if (route && route.path) { // grabs the paths assigned in angular router
           routePathsArray.push(route.path);
         }
       }
