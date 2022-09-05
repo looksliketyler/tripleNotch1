@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Animals } from 'src/app/models/triple-notch-models.model';
 
@@ -14,7 +15,9 @@ export class InformationService {
     {name: 'Moles', description: 'If you see mounds of unexplained dirt or burrowed holes, you have a mole problem. They may even burrow under your driveway. Since these underground pests typically stay below your lawn, your landscaping runs the risk of being ruined. Don\'t let these molehills turn into mountains.'},
     {name: 'Mice', description: 'Mice are a very common pest. They find their way into your home through the smallest holes. Like squirrels, they can chew wires. Mice leave trails of feces. Although traps and poison may seem effective ways of removal, it\'s only temporary. Rely on Pete to remove rodents and keep them out.'},
     {name: 'Groundhogs', description: 'Very similar to moles, groundhogs burrow throughout your property. Keep an eye out for structural damage. As they tunnel under porches, decks, and small buildings, groundhogs can cause foundational issues. Buried service wires, invisible fences, and roots can be vulnerable.'}
-  ]
+  ];
+  private routeTitleArray: string[] = [];
+  private routePathsArray: string[] = [];
 
   constructor() { }
 
@@ -25,4 +28,42 @@ export class InformationService {
   public getAnimals(): Animals[] {
     return this.animals;
   }
+
+  public callRoutingInfo(routes: Router): void {
+    if (routes) {
+      this.filterAndReturnRouteInfo(routes);
+    }
+  }
+
+  public getRouteTitles(): string[] {
+    return this.routeTitleArray;
+  }
+
+  public getRoutePaths(): string[] {
+    return this.routePathsArray;
+  }
+
+  /**
+   * @description - method to filter through angular router paths and return page titles for navbar consumption
+   * @param {Router} routes - angular router object
+   * @returns {void}
+   */
+  private filterAndReturnRouteInfo(routes: Router): void {
+    let routeTitleArray: string[] = [];
+    let routePathsArray: string[] = [];
+    if (Array.isArray(routes.config)) {
+      for (const route of routes.config) {
+        if (route['data'] && route['data'].title) {
+          routeTitleArray.push(route['data'].title);
+        }
+        if (route && route.path) {
+          routePathsArray.push(route.path);
+        }
+      }
+    }
+    this.routeTitleArray = routeTitleArray;
+    this.routePathsArray = routePathsArray;
+  }
+
+
 }
