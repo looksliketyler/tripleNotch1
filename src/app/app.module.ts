@@ -10,6 +10,8 @@ import { ServicesOfferedComponent } from './views/services-offered/services-offe
 import { AboutComponent } from './views/about/about.component';
 import { ServiceAreaComponent } from './views/service-area/service-area.component';
 import { ContactComponent } from './views/contact/contact.component';
+import { UniversalTabbedCardComponent } from './components/universal-tabbed-card/universal-tabbed-card.component';
+import { UniversalTabComponent } from './components/universal-tabbed-card/universal-tab/universal-tab.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ContactComponent } from './views/contact/contact.component';
     ServicesOfferedComponent,
     AboutComponent,
     ServiceAreaComponent,
-    ContactComponent
+    ContactComponent,
+    UniversalTabbedCardComponent,
+    UniversalTabComponent
   ],
   imports: [
     BrowserModule,
