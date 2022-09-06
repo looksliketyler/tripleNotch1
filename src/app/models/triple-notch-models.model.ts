@@ -4,6 +4,6 @@
  * @param {string} description - animal description
  */
 export interface Animals {
-  readonly name: string;
-  readonly description: string;
+  name: string;
+  description: string;
 }

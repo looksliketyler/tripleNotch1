@@ -1,21 +1,17 @@
-<nav class="navbar navbar-expand-lg bg-primary">
+<nav class="navbar navbar-expand-md bg-primary sticky-top">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand text-white" href="#">Triple Notch</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Hidden brand</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav">
         <ng-container *ngFor="let title of routeTitles; let i = index">
-          <li class="nav-item">
-            <a [routerLink]="routePaths[i]" class="nav-link">{{title}}</a>
-          </li>
+          <a class="nav-link" [routerLink]="routePaths[i]">
+            <li class="nav-item text-light" data-bs-toggle="collapse" data-bs-target="#navbarMenu">{{title}}</li>
+          </a>
         </ng-container>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
