@@ -1,1 +1,25 @@
-<p>services-offered works!</p>
+<p>Below is just to demonstrate how the tabbed card works. Still needs style work.</p>
+<app-universal-tabbed-card>
+    <app-universal-tab tabTitle="Inspection" [active]="true">
+      <p>Once at your home, Pete will inspect the property. He'll check the following:</p>
+      <ul>
+        <li>Ground level - holes and cracks in the home. Under decks and sheds.</li>
+        <li>Mid level - dryer vents and cabling holes.</li>
+        <li>Top level - soffets and attic vents.</li>
+      </ul>
+    </app-universal-tab>
+    <app-universal-tab tabTitle="Removal">
+      <p>After an inspection, set up and removal begins.</p>
+      <ul>
+        <li>Trapping most animals is the best way of removal.</li>
+        <li>Exclusion may be a viable option. This will allow animals to exit the home but not re-enter.</li>
+      </ul>
+    </app-universal-tab>
+    <app-universal-tab tabTitle="Patch/Barrier">
+      <p>Upon removal completion, patch and/or barrier work is highly recommended.</p>
+      <ul>
+        <li>Patch and seal all entry holes for animals.</li>
+        <li>Possibly repair damage caused by creation of entry points.</li>
+      </ul>
+    </app-universal-tab>
+  </app-universal-tabbed-card>

@@ -1,0 +1,22 @@
+<div class="container card">
+  <ul class="nav nav-pills" id="pills-tab" role="tablist">
+    <ng-container *ngFor="let tab of childTabs; let i = index">
+    <li class="nav-item" role="presentation">
+      <button 
+        class="nav-link" 
+        [ngClass]="(i === activeTab ? 'active' : '')" 
+        [id]="'pills-'+ i +'-'+ uniqueId +'-tab'"
+        data-bs-toggle="pill" 
+        [attr.data-bs-target]="'#pills-'+ i +'-'+ uniqueId"
+        type="button"
+        role="tab"
+        [attr.aria-controls]="'pills-'+ i +'-'+ uniqueId"
+        [attr.aria-selected]="(i === activeTab ? 'active' : '')"
+      >{{ tabTitles[i] }}</button>
+    </li>
+  </ng-container>
+  </ul>
+  <div class="tab-content">
+    <ng-content></ng-content>
+  </div>
+</div>
