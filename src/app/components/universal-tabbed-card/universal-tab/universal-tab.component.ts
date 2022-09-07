@@ -6,7 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./universal-tab.component.scss']
 })
 export class UniversalTabComponent {
-
   @Input() tabTitle: string = 'Tab';
   @Input() active: boolean = false;
   @Input() tabNum: number = 0; // Index of this tab within the tabbed-card
